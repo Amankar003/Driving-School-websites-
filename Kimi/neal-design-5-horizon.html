@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Neal Driving School | Car Driving Classes in Dhanbad</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0d1b3e; --navy2:#1a2c5e; --sky:#3b82f6; --sky2:#93c5fd;
+  --bg:#f5f7fc; --card:#ffffff; --ink:#0f1a33; --mut:#5a6a8c; --line:#dfe5f2;
+  --fd:'Space Grotesk',sans-serif; --fb:'Inter',sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:88px}
+body{background:var(--bg);color:var(--ink);font:400 17px/1.7 var(--fb);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+ul{list-style:none}
+img{max-width:100%;display:block}
+:focus-visible{outline:2px solid var(--sky);outline-offset:3px}
+.wrap{width:min(1160px,100% - 40px);margin-inline:auto}
+
+/* Floating gradient orbs */
+.orb{position:fixed;border-radius:50%;filter:blur(90px);z-index:-1;pointer-events:none;opacity:.5;animation:float 16s ease-in-out infinite alternate}
+.orb1{width:520px;height:520px;background:#c7dbff;top:-160px;right:-120px}
+.orb2{width:420px;height:420px;background:#dbe7ff;bottom:-140px;left:-120px;animation-delay:-8s}
+@keyframes float{to{transform:translate(40px,50px)}}
+
+/* ============ NAV ============ */
+header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.85);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.bar{display:flex;align-items:center;justify-content:space-between;min-height:72px;gap:16px}
+.logo{display:flex;align-items:center;gap:11px}
+.logo .mk{width:40px;height:40px;border-radius:12px;background:linear-gradient(135deg,var(--navy),var(--navy2));color:#fff;display:grid;place-items:center;font:700 19px var(--fd);box-shadow:0 8px 18px -8px rgba(13,27,62,.6)}
+.logo b{font:700 19px var(--fd);letter-spacing:-.01em}
+.logo small{display:block;font-size:10.5px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--mut)}
+nav{display:none;gap:32px}
+nav a{font:500 14.5px var(--fb);color:var(--mut);transition:color .2s}
+nav a:hover{color:var(--navy)}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:0 30px;border-radius:14px;border:0;font:600 15.5px var(--fb);cursor:pointer;transition:transform .2s,box-shadow .2s,background .2s}
+.btn:hover{transform:translateY(-2px)}
+.btn-pri{background:linear-gradient(135deg,var(--navy),var(--navy2));color:#fff;box-shadow:0 14px 28px -12px rgba(13,27,62,.55)}
+.btn-sec{background:#fff;color:var(--navy);border:1.5px solid var(--line)}
+.btn-sec:hover{border-color:var(--navy)}
+.btn-sky{background:linear-gradient(135deg,var(--sky),#2563eb);color:#fff;box-shadow:0 14px 28px -12px rgba(59,130,246,.55)}
+.btn-sm{min-height:42px;padding:0 22px;font-size:14px}
+
+/* ============ HERO ============ */
+.hero{padding:80px 0 60px;position:relative;overflow:hidden}
+.hero-g{display:grid;gap:48px;align-items:center}
+.pill{display:inline-flex;align-items:center;gap:9px;background:#fff;border:1px solid var(--line);border-radius:999px;padding:7px 18px;font:600 13.5px var(--fb);color:var(--mut)}
+.pill i{width:8px;height:8px;border-radius:50%;background:var(--sky);box-shadow:0 0 0 4px rgba(59,130,246,.15)}
+h1{margin-top:24px;font:700 clamp(2.7rem,9vw,4.8rem)/1.08 var(--fd);letter-spacing:-.03em}
+h1 .gr{background:linear-gradient(100deg,var(--sky),var(--navy2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero .sub{margin-top:18px;font:500 clamp(1.1rem,3.2vw,1.45rem) var(--fd);color:var(--navy2)}
+.hero .lede{margin-top:14px;max-width:33em;color:var(--mut)}
+.cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:32px}
+.trust{display:flex;flex-wrap:wrap;gap:10px 24px;margin-top:28px}
+.trust li{display:flex;align-items:center;gap:9px;font:600 14.5px var(--fb);color:var(--navy)}
+.trust li::before{content:'';width:18px;height:18px;border-radius:50%;background:var(--navy) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 18 18'%3E%3Cpath d='M5 9.4l2.6 2.6L13.2 6' fill='none' stroke='%23fff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/18px}
+
+/* Callback card */
+.gcard{position:relative;background:rgba(255,255,255,.9);backdrop-filter:blur(16px);border:1px solid var(--line);border-radius:24px;padding:34px 30px;box-shadow:0 40px 70px -40px rgba(13,27,62,.4)}
+.gcard .flag{position:absolute;top:-13px;left:28px;background:linear-gradient(135deg,var(--sky),var(--navy2));color:#fff;font:700 11.5px var(--fb);letter-spacing:.12em;text-transform:uppercase;padding:6px 16px;border-radius:999px}
+.gcard h3{font:700 1.3rem var(--fd)}
+.gcard .hint{color:var(--mut);font-size:14.5px;margin:4px 0 20px}
+.form{display:grid;gap:14px}
+.form label{display:grid;gap:7px;font:600 13.5px var(--fb);color:var(--navy)}
+.form input,.form select{min-height:52px;padding:0 16px;border:1.5px solid var(--line);border-radius:13px;background:#fff;color:var(--ink);font:500 15.5px var(--fb);transition:border-color .2s,box-shadow .2s}
+.form input:focus,.form select:focus{outline:none;border-color:var(--sky);box-shadow:0 0 0 4px rgba(59,130,246,.14)}
+.form input::placeholder{color:#a3aec7}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+
+/* ============ CAR SHOWCASE ============ */
+.showcase{margin-top:64px;text-align:center;position:relative}
+.showcase .car{width:min(880px,100%);margin-inline:auto;filter:drop-shadow(0 44px 38px rgba(13,27,62,.28));animation:bob 5s ease-in-out infinite}
+@keyframes bob{50%{transform:translateY(-10px)}}
+.showcase .chips{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:18px}
+.showcase .chips span{background:#fff;border:1px solid var(--line);border-radius:999px;padding:9px 22px;font:600 14px var(--fb);color:var(--navy);box-shadow:0 10px 24px -14px rgba(13,27,62,.4)}
+.showcase .chips span i{color:var(--sky);font-style:normal;margin-right:6px}
+
+/* ============ MARQUEE ============ */
+.marq{background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line);overflow:hidden;margin-top:70px}
+.marq div{display:flex;width:max-content;animation:mq 30s linear infinite}
+.marq span{display:inline-flex;align-items:center;gap:30px;padding:18px 30px;font:600 15px var(--fd);color:#7c8aab;white-space:nowrap;letter-spacing:.02em}
+.marq span::after{content:'✦';color:var(--sky2);font-size:13px}
+@keyframes mq{to{transform:translateX(-50%)}}
+
+/* ============ SECTIONS ============ */
+section{padding:90px 0}
+.kicker{display:inline-flex;align-items:center;gap:12px;font:700 12.5px var(--fb);letter-spacing:.24em;text-transform:uppercase;color:var(--sky)}
+.kicker::before{content:'';width:30px;height:2px;background:var(--sky);border-radius:2px}
+h2{margin-top:14px;font:700 clamp(1.9rem,5.8vw,2.9rem)/1.1 var(--fd);letter-spacing:-.025em}
+.lead{margin-top:14px;max-width:36em;color:var(--mut)}
+.sec-head{display:grid;gap:8px}
+.sec-head.center{text-align:center;justify-items:center}
+
+/* ============ STATS BAND ============ */
+.stats{background:linear-gradient(135deg,var(--navy),var(--navy2));border-radius:28px;padding:46px 30px;display:grid;grid-template-columns:1fr 1fr;gap:36px 20px;text-align:center;box-shadow:0 40px 70px -40px rgba(13,27,62,.7)}
+.stats li b{display:block;font:700 clamp(2.2rem,7vw,3rem)/1.1 var(--fd);color:#fff}
+.stats li b i{font-style:normal;color:var(--sky2)}
+.stats li span{font-size:13.5px;color:#b9c6e8;letter-spacing:.04em}
+
+/* ============ SPOTLIGHT CARDS ============ */
+.spot{position:relative;overflow:hidden;background:var(--card);border:1px solid var(--line);border-radius:20px;transition:transform .3s,box-shadow .3s,border-color .3s}
+.spot::before{content:'';position:absolute;inset:0;background:radial-gradient(420px circle at var(--mx,50%) var(--my,50%),rgba(59,130,246,.1),transparent 45%);opacity:0;transition:opacity .35s;pointer-events:none}
+.spot:hover::before{opacity:1}
+.spot:hover{transform:translateY(-5px);box-shadow:0 30px 50px -30px rgba(13,27,62,.35);border-color:#c3d4f5}
+.ic{width:52px;height:52px;border-radius:14px;background:linear-gradient(135deg,var(--navy),var(--navy2));color:#fff;display:grid;place-items:center;font:700 14px var(--fd)}
+
+/* Skills */
+.skills{margin-top:48px;display:grid;gap:18px}
+.skill{padding:28px 26px}
+.skill h3{margin-top:16px;font:600 1.18rem var(--fd)}
+.skill p{margin-top:8px;color:var(--mut);font-size:15.5px}
+.who{margin-top:36px;display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.who b{font:600 13px var(--fb);color:var(--mut);letter-spacing:.06em;margin-right:4px}
+.who span{background:#fff;border:1.5px solid var(--line);border-radius:999px;padding:9px 22px;font:600 14.5px var(--fb);color:var(--navy);transition:border-color .25s,transform .2s}
+.who span:hover{border-color:var(--sky);transform:translateY(-2px)}
+
+/* ============ HOW IT WORKS ============ */
+.steps{margin-top:52px;display:grid;gap:22px}
+.step{position:relative;background:#fff;border:1px solid var(--line);border-radius:20px;padding:30px 26px}
+.step .n{width:46px;height:46px;border-radius:50%;background:linear-gradient(135deg,var(--sky),#2563eb);color:#fff;display:grid;place-items:center;font:700 17px var(--fd);box-shadow:0 10px 22px -8px rgba(59,130,246,.6)}
+.step h3{margin-top:18px;font:600 1.15rem var(--fd)}
+.step p{margin-top:8px;color:var(--mut);font-size:15px}
+@media(min-width:900px){
+  .steps{grid-template-columns:repeat(4,1fr)}
+  .step:not(:last-child)::after{content:'';position:absolute;top:53px;right:-22px;width:22px;height:2px;background:linear-gradient(90deg,var(--sky2),transparent)}
+}
+
+/* ============ WHY CHOOSE ============ */
+.feats{margin-top:48px;display:grid;gap:18px}
+.feat{padding:28px 26px;display:flex;gap:18px;align-items:flex-start}
+.feat h3{font:600 1.08rem var(--fd)}
+.feat p{margin-top:6px;color:var(--mut);font-size:15px}
+
+/* ============ TRAINER ============ */
+.trainer{background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.tg{display:grid;gap:44px;align-items:center}
+.tframe{position:relative;max-width:380px;margin-inline:auto;width:100%}
+.tframe::before{content:'';position:absolute;inset:16px -16px -16px 16px;border-radius:28px;background:linear-gradient(135deg,var(--sky2),#dbe7ff);z-index:0}
+.tframe img{position:relative;z-index:1;width:100%;border-radius:28px;border:1px solid var(--line);box-shadow:0 34px 60px -34px rgba(13,27,62,.55);background:linear-gradient(160deg,#f8faff,#e8eefc)}
+.tbadge{position:relative;z-index:2;margin:-26px auto 0;width:fit-content;background:#fff;border:1px solid var(--line);border-radius:999px;padding:10px 24px;font:600 14px var(--fb);color:var(--navy);box-shadow:0 14px 30px -14px rgba(13,27,62,.4);display:flex;align-items:center;gap:8px}
+.tbadge i{width:8px;height:8px;border-radius:50%;background:#22c55e;font-style:normal}
+.tpoints{margin-top:26px;display:grid;gap:12px}
+.tpoints li{display:flex;gap:12px;align-items:center;font:500 15.5px var(--fb);color:var(--ink)}
+.tpoints li::before{content:'';flex:none;width:22px;height:22px;border-radius:50%;background:var(--navy) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 18 18'%3E%3Cpath d='M5 9.4l2.6 2.6L13.2 6' fill='none' stroke='%23fff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/18px}
+
+/* ============ PRICING ============ */
+.plans{margin-top:52px;display:grid;gap:22px;align-items:stretch}
+.plan{padding:34px 30px;display:flex;flex-direction:column}
+.plan .d{font:700 12.5px var(--fb);letter-spacing:.2em;text-transform:uppercase;color:var(--mut)}
+.plan .price{margin-top:14px;font:700 clamp(2.8rem,9vw,3.5rem)/1 var(--fd);letter-spacing:-.03em}
+.plan .price small{font:500 .95rem var(--fb);color:var(--mut);letter-spacing:0}
+.plan .km{margin-top:8px;color:var(--mut);font-size:14.5px}
+.plan ul{margin:24px 0 28px;padding-top:22px;border-top:1px solid var(--line);display:grid;gap:12px;flex:1}
+.plan li{position:relative;padding-left:28px;font-size:15.5px}
+.plan li::before{content:'';position:absolute;left:2px;top:.42em;width:13px;height:7px;border-left:2px solid var(--sky);border-bottom:2px solid var(--sky);transform:rotate(-45deg)}
+.plan .btn{width:100%}
+.plan.hot{background:linear-gradient(165deg,var(--navy),var(--navy2));border-color:transparent;color:#fff}
+.plan.hot .d,.plan.hot .km{color:#b9c6e8}
+.plan.hot .price small{color:#b9c6e8}
+.plan.hot li{color:#dbe4f8}
+.plan.hot li::before{border-color:var(--sky2)}
+.plan .flag{position:absolute;top:-13px;left:28px;background:linear-gradient(135deg,var(--sky),#2563eb);color:#fff;font:700 11.5px var(--fb);letter-spacing:.12em;text-transform:uppercase;padding:6px 16px;border-radius:999px}
+.fine{margin-top:22px;font-size:13.5px;color:var(--mut)}
+
+/* ============ FAQ ============ */
+.faq{margin-top:48px;display:grid;gap:14px;max-width:820px}
+details{background:#fff;border:1px solid var(--line);border-radius:16px;transition:border-color .25s,box-shadow .25s}
+details[open]{border-color:#b9ccf2;box-shadow:0 18px 34px -26px rgba(13,27,62,.4)}
+summary{cursor:pointer;list-style:none;padding:20px 60px 20px 24px;font:600 16px var(--fb);color:var(--navy);position:relative}
+summary::-webkit-details-marker{display:none}
+summary::after{content:'';position:absolute;right:20px;top:50%;width:34px;height:34px;margin-top:-17px;border-radius:10px;background:var(--bg);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 18 18'%3E%3Cpath d='M9 4v10M4 9h10' stroke='%230d1b3e' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:center;transition:transform .3s,border-radius .3s}
+details[open] summary::after{transform:rotate(45deg);border-radius:50%}
+details p{padding:0 24px 20px;color:var(--mut)}
+
+/* ============ REVIEWS ============ */
+.quotes{margin-top:48px;display:grid;gap:18px}
+.q{padding:28px 26px;margin:0}
+.q .st{color:#f0a92e;letter-spacing:4px}
+.q p{margin-top:14px;color:var(--ink);font-size:16px}
+.q b{display:block;margin-top:18px;font:600 14px var(--fb);color:var(--mut)}
+
+/* ============ CTA BANNER ============ */
+.ctaband{background:linear-gradient(135deg,var(--navy),var(--navy2));border-radius:28px;padding:56px 30px;text-align:center;color:#fff;position:relative;overflow:hidden;box-shadow:0 44px 80px -44px rgba(13,27,62,.8)}
+.ctaband::before{content:'';position:absolute;width:420px;height:420px;border-radius:50%;background:radial-gradient(circle,rgba(147,197,253,.25),transparent 70%);top:-200px;right:-120px}
+.ctaband h2{color:#fff;position:relative}
+.ctaband p{color:#c3cde3;max-width:34em;margin:14px auto 0;position:relative}
+.ctaband .cta{justify-content:center;position:relative}
+.ctaband .btn-sec{background:transparent;color:#fff;border-color:rgba(255,255,255,.4)}
+.ctaband .btn-sec:hover{border-color:#fff}
+
+/* ============ CONTACT ============ */
+.contact{background:linear-gradient(180deg,var(--bg),#e8eefc);padding-top:0}
+.cg{display:grid;gap:44px}
+address{font-style:normal;margin-top:24px;color:var(--ink);line-height:1.9;font-size:16.5px}
+.hours{margin-top:20px;background:#fff;border:1px solid var(--line);border-radius:16px;padding:20px 22px;display:grid;gap:8px}
+.hours div{display:flex;justify-content:space-between;gap:20px;font-size:15px}
+.hours b{font-weight:600;color:var(--navy)}
+.hours span{color:var(--mut)}
+
+/* ============ FOOTER ============ */
+footer{background:var(--navy);color:#9db0d8;padding:38px 0 110px;font-size:14.5px}
+footer .wrap{display:grid;gap:8px}
+footer a{color:#fff;font-weight:600}
+footer b{color:#fff;font-family:var(--fd)}
+.sticky{position:fixed;left:12px;right:12px;bottom:12px;z-index:60;display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.sticky a{text-align:center;padding:15px;border-radius:14px;font:700 14.5px var(--fb);background:linear-gradient(135deg,var(--navy),var(--navy2));color:#fff;box-shadow:0 16px 30px -12px rgba(13,27,62,.7)}
+.sticky a:last-child{background:#fff;color:var(--navy);border:1.5px solid var(--navy)}
+
+/* Reveal */
+.js .rv{opacity:0;transform:translateY(36px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1)}
+.js .rv.in{opacity:1;transform:none}
+
+/* ============ RESPONSIVE ============ */
+@media(min-width:700px){
+  .skills{grid-template-columns:1fr 1fr}
+  .feats{grid-template-columns:1fr 1fr}
+  .quotes{grid-template-columns:1fr 1fr}
+  .stats{grid-template-columns:repeat(4,1fr);padding:52px 40px}
+}
+@media(min-width:900px){
+  nav{display:flex}
+  .hero-g{grid-template-columns:1.05fr .95fr;gap:60px}
+  .skills{grid-template-columns:repeat(3,1fr)}
+  .feats{grid-template-columns:repeat(4,1fr)}
+  .plans{grid-template-columns:repeat(3,1fr)}
+  .plan.hot{transform:translateY(-14px)}
+  .plan.hot:hover{transform:translateY(-20px)}
+  .quotes{grid-template-columns:repeat(3,1fr)}
+  .tg{grid-template-columns:380px 1fr;gap:80px}
+  .cg{grid-template-columns:1fr 1fr;gap:80px;align-items:start}
+  .sec-head.split{grid-template-columns:1fr auto;align-items:end}
+  .sticky{display:none}
+  footer{padding-bottom:40px}
+}
+@media(max-width:480px){
+  .two{grid-template-columns:1fr}
+  .cta .btn{width:100%}
+  .stats{grid-template-columns:1fr 1fr;padding:36px 20px}
+}
+@media(prefers-reduced-motion:reduce){
+  .orb,.marq div,.showcase .car{animation:none}
+  .js .rv{opacity:1;transform:none;transition:none}
+}
+</style>
+</head>
+<body>
+<div class="orb orb1" aria-hidden="true"></div><div class="orb orb2" aria-hidden="true"></div>
+
+<header><div class="wrap bar">
+  <a class="logo" href="#top"><span class="mk">N</span><span><b>Neal</b><small>Driving School</small></span></a>
+  <nav><a href="#learn">Training</a><a href="#how">How it works</a><a href="#pricing">Pricing</a><a href="#trainer">Trainer</a><a href="#faq">FAQ</a><a href="#contact">Contact</a></nav>
+  <a class="btn btn-pri btn-sm" href="tel:9431370327">Call 94313 70327</a>
+</div></header>
+
+<main id="top">
+<!-- ================= HERO ================= -->
+<section class="hero"><div class="wrap">
+  <div class="hero-g">
+    <div>
+      <span class="pill"><i></i>Rahar Gora, Dhaiya, Dhanbad</span>
+      <h1>Driving lessons,<br><span class="gr">done right.</span></h1>
+      <p class="sub">कार चलाना सीखें — आत्मविश्वास के साथ।</p>
+      <p class="lede">Patient instructors, real road practice, manual and automatic cars. Neal Driving School builds calm, capable drivers — from your first start to highway confidence.</p>
+      <div class="cta">
+        <a class="btn btn-pri" href="tel:9431370327">Call 94313 70327</a>
+        <a class="btn btn-sec" href="https://wa.me/919431370327?text=Hello%2C%20I%20want%20to%20know%20about%20car%20driving%20classes." target="_blank" rel="noreferrer">WhatsApp us</a>
+      </div>
+      <ul class="trust"><li>Passing guarantee</li><li>Manual and automatic</li><li>Special training for ladies</li></ul>
+    </div>
+    <div class="gcard js rv">
+      <span class="flag">Most chosen plan</span>
+      <h3>Book a free callback</h3>
+      <p class="hint">Share your details. We call you back the same day.</p>
+      <form class="form" id="f">
+        <label>Your name<input name="name" required minlength="2" placeholder="e.g. Rahul Kumar"></label>
+        <label>Mobile number<input name="phone" type="tel" inputmode="numeric" required pattern="[6-9][0-9]{9}" placeholder="10-digit mobile" title="10-digit mobile number"></label>
+        <div class="two">
+          <label>Plan<select name="plan"><option>10 days</option><option selected>15 days</option><option>30 days</option><option>Not sure yet</option></select></label>
+          <label>Car type<select name="car"><option>Manual</option><option>Automatic</option><option>Both</option></select></label>
+        </div>
+        <button class="btn btn-pri" type="submit">Request a call back</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- CAR SHOWCASE -->
+  <div class="showcase js rv">
+    <img class="car" src="hero-car.png" alt="Neal Driving School training car — manual and automatic">
+    <div class="chips">
+      <span><i>✓</i>Manual and automatic cars</span>
+      <span><i>✓</i>10 km practice daily</span>
+      <span><i>✓</i>Instructor beside you</span>
+      <span><i>✓</i>Dual-control ready</span>
+    </div>
+  </div>
+</div></section>
+
+<!-- ================= MARQUEE ================= -->
+<div class="marq" aria-hidden="true"><div>
+  <span>10 km practice daily</span><span>Manual and automatic</span><span>Ladies special training</span><span>Passing guarantee</span><span>City and highway</span><span>First-time learners welcome</span>
+  <span>10 km practice daily</span><span>Manual and automatic</span><span>Ladies special training</span><span>Passing guarantee</span><span>City and highway</span><span>First-time learners welcome</span>
+</div></div>
+
+<!-- ================= STATS ================= -->
+<section style="padding-bottom:0"><div class="wrap js rv">
+  <div class="stats">
+    <li><b><span class="count" data-to="500">0</span><i>+</i></b><span>learners trained</span></li>
+    <li><b><span class="count" data-to="10">0</span><i> km</i></b><span>practice every day</span></li>
+    <li><b><span class="count" data-to="30">0</span><i> days</i></b><span>complete program</span></li>
+    <li><b>4.9<i> ★</i></b><span>Google rating</span></li>
+  </div>
+</div></section>
+
+<!-- ================= TRAINING ================= -->
+<section id="learn"><div class="wrap js rv">
+  <div class="sec-head">
+    <div><span class="kicker">Training</span>
+    <h2>Everything you need to drive with confidence</h2></div>
+    <p class="lead">Every lesson is on real roads with an instructor beside you, so what you learn works long after the test.</p>
+  </div>
+  <div class="skills">
+    <div class="spot skill"><div class="ic">4W</div><h3>Four-wheeler training</h3><p>From the first time you sit behind the wheel to full road readiness.</p></div>
+    <div class="spot skill"><div class="ic">M/A</div><h3>Manual and automatic</h3><p>Learn on the gearbox you actually plan to drive.</p></div>
+    <div class="spot skill"><div class="ic">HWY</div><h3>City and highway driving</h3><p>Busy junctions to open highways — real conditions, real confidence.</p></div>
+    <div class="spot skill"><div class="ic">P</div><h3>Parking and reverse</h3><p>Tight spots and tricky turns, practised until they feel easy.</p></div>
+    <div class="spot skill"><div class="ic">RS</div><h3>Traffic rules and road safety</h3><p>Everything you need for the test — and for every day after it.</p></div>
+    <div class="spot skill"><div class="ic">✓</div><h3>Passing guarantee</h3><p>We stand behind our training. Call us to know how it works.</p></div>
+  </div>
+  <div class="who"><b>SPECIAL TRAINING FOR</b><span>Ladies</span><span>First-time learners</span><span>Nervous drivers</span><span>Working professionals</span></div>
+</div></section>
+
+<!-- ================= HOW IT WORKS ================= -->
+<section id="how" style="padding-top:0"><div class="wrap js rv">
+  <div class="sec-head center">
+    <span class="kicker">How it works</span>
+    <h2>On the road in 4 simple steps</h2>
+    <p class="lead">No paperwork headaches. One call and your lessons begin.</p>
+  </div>
+  <div class="steps">
+    <div class="step"><span class="n">1</span><h3>Call or WhatsApp</h3><p>Tell us your goal — first licence, refresher, or confidence building.</p></div>
+    <div class="step"><span class="n">2</span><h3>Pick your plan</h3><p>Choose 10, 15 or 30 days — manual or automatic car.</p></div>
+    <div class="step"><span class="n">3</span><h3>Drive 10 km daily</h3><p>Real road practice with your instructor beside you, every day.</p></div>
+    <div class="step"><span class="n">4</span><h3>Pass and drive on</h3><p>Test-ready skills, plus a passing guarantee. Ask us how it works.</p></div>
+  </div>
+</div></section>
+
+<!-- ================= WHY CHOOSE ================= -->
+<section style="padding-top:0"><div class="wrap js rv">
+  <div class="sec-head">
+    <div><span class="kicker">Why Neal</span>
+    <h2>Built around the learner, not the clock</h2></div>
+  </div>
+  <div class="feats">
+    <div class="spot feat"><div class="ic">☂</div><div><h3>Patient instructors</h3><p>Trained to calm nervous drivers — never rushed, never shouted at.</p></div></div>
+    <div class="spot feat"><div class="ic">⚙</div><div><h3>Manual + automatic</h3><p>Learn on the gearbox you will actually drive at home.</p></div></div>
+    <div class="spot feat"><div class="ic">◷</div><div><h3>Flexible timing</h3><p>Morning or evening slots that fit working professionals.</p></div></div>
+    <div class="spot feat"><div class="ic">₹</div><div><h3>Honest pricing</h3><p>Clear plans, no hidden charges. Confirm the fee in one call.</p></div></div>
+  </div>
+</div></section>
+
+<!-- ================= TRAINER ================= -->
+<section class="trainer" id="trainer"><div class="wrap tg js rv">
+  <div class="tframe">
+    <img src="trainer.png" alt="Certified driving instructor at Neal Driving School">
+    <div class="tbadge"><i></i>Certified instructor — 10+ years experience</div>
+  </div>
+  <div>
+    <span class="kicker">Your trainer</span>
+    <h2>Learn from someone who teaches with patience</h2>
+    <p class="lead">Our lead instructor has trained hundreds of first-time drivers, nervous learners and working professionals across Dhanbad. Lessons move at your pace — every question is welcome, every mistake is practice.</p>
+    <ul class="tpoints">
+      <li>One-on-one attention in every session</li>
+      <li>Special care for ladies and nervous drivers</li>
+      <li>City, highway, parking and test preparation</li>
+      <li>Hindi and English instruction</li>
+    </ul>
+    <div class="cta"><a class="btn btn-pri" href="tel:9431370327">Talk to your trainer</a></div>
+  </div>
+</div></section>
+
+<!-- ================= PRICING ================= -->
+<section id="pricing"><div class="wrap js rv">
+  <div class="sec-head">
+    <div><span class="kicker">Pricing</span>
+    <h2>Simple plans, clear prices</h2></div>
+    <p class="lead">Every plan includes a daily 10 km session with an instructor. Choose manual or automatic when you book.</p>
+  </div>
+  <div class="plans">
+    <article class="spot plan"><p class="d">Starter</p><p class="price">₹3,200<small> / 10 days</small></p><p class="km">10 km every day</p>
+      <ul><li>Manual or automatic car</li><li>Traffic rules basics</li><li>Daily instructor session</li></ul>
+      <a class="btn btn-sec" href="#contact">Book this plan</a></article>
+    <article class="spot plan hot"><span class="flag">Most chosen</span><p class="d">Standard</p><p class="price">₹4,500<small> / 15 days</small></p><p class="km">10 km every day</p>
+      <ul><li>Manual or automatic car</li><li>City driving, parking and reverse</li><li>Traffic rules and road safety</li></ul>
+      <a class="btn btn-sky" href="#contact">Book this plan</a></article>
+    <article class="spot plan"><p class="d">Complete</p><p class="price">₹8,000<small> / 30 days</small></p><p class="km">10 km every day</p>
+      <ul><li>Everything in the 15-day plan</li><li>City and highway driving</li><li>Extra practice before your test</li></ul>
+      <a class="btn btn-sec" href="#contact">Book this plan</a></article>
+  </div>
+  <p class="fine">Prices shown are indicative. Please confirm the current fee when you call.</p>
+</div></section>
+
+<!-- ================= FAQ ================= -->
+<section id="faq" style="padding-top:0"><div class="wrap js rv">
+  <div class="sec-head">
+    <div><span class="kicker">FAQ</span>
+    <h2>Questions people ask</h2></div>
+  </div>
+  <div class="faq">
+    <details open><summary>Do you teach both manual and automatic cars?</summary><p>Yes. You can learn on manual, automatic or both. Tell us your choice when you book.</p></details>
+    <details><summary>I am scared to drive. Can I still learn?</summary><p>Yes. Our training is beginner friendly and built around confidence, with personal attention from your instructor.</p></details>
+    <details><summary>Is there special training for ladies?</summary><p>Yes. We offer special training for ladies, first-time learners, nervous drivers and working professionals.</p></details>
+    <details><summary>How much do I practise every day?</summary><p>Each plan includes a daily 10 km session with an instructor. Plans run for 10, 15 or 30 days.</p></details>
+    <details><summary>What does the passing guarantee cover?</summary><p>Please call us on 94313 70327 and we will explain the exact terms.</p></details>
+    <details><summary>Do you also rent cars?</summary><p>Yes, through Neal Motors: self-drive or with a driver, for daily, weekly or monthly use. Call 62999 16160.</p></details>
+    <details><summary>Where are you located?</summary><p>Rahar Gora, Dhaiya, near Prabhatam Mall, Dhanbad, Jharkhand 826004.</p></details>
+  </div>
+</div></section>
+
+<!-- ================= REVIEWS ================= -->
+<section id="reviews" style="padding-top:0"><div class="wrap js rv">
+  <div class="sec-head">
+    <div><span class="kicker">Reviews</span>
+    <h2>What learners say on Google</h2></div>
+  </div>
+  <div class="quotes">
+    <figure class="spot q"><div class="st">★★★★★</div><p>Placeholder: replace with a real Google review from a Neal Driving School student.</p><b>Google reviewer</b></figure>
+    <figure class="spot q"><div class="st">★★★★★</div><p>Placeholder: replace with a real review, ideally from a first-time or nervous learner.</p><b>Google reviewer</b></figure>
+    <figure class="spot q"><div class="st">★★★★★</div><p>Placeholder: replace with a real review, ideally from a lady learner.</p><b>Google reviewer</b></figure>
+  </div>
+  <p style="margin-top:36px"><a class="btn btn-pri" href="https://share.google/chuuq7Lb9e3djTQq4" target="_blank" rel="noreferrer">Read all reviews on Google</a></p>
+</div></section>
+
+<!-- ================= CTA BANNER ================= -->
+<section style="padding-top:0"><div class="wrap js rv">
+  <div class="ctaband">
+    <span class="kicker" style="color:var(--sky2)">Ready when you are</span>
+    <h2>Your first lesson is one call away</h2>
+    <p>Slots fill fast on weekends. Call now and start driving this week.</p>
+    <div class="cta">
+      <a class="btn btn-sky" href="tel:9431370327">Call 94313 70327</a>
+      <a class="btn btn-sec" href="https://wa.me/919431370327?text=Hello%2C%20I%20want%20to%20know%20about%20car%20driving%20classes." target="_blank" rel="noreferrer">WhatsApp us</a>
+    </div>
+  </div>
+</div></section>
+
+<!-- ================= CONTACT ================= -->
+<section class="contact" id="contact"><div class="wrap cg">
+  <div class="js rv">
+    <span class="kicker">Contact</span>
+    <h2>Start your lessons this week</h2>
+    <p class="lead">Call us, WhatsApp us, or drop by. We will help you pick the right plan.</p>
+    <address>Rahar Gora, Dhaiya, near Prabhatam Mall<br>Dhanbad, Jharkhand 826004</address>
+    <div class="hours">
+      <div><b>Monday – Saturday</b><span>7:00 AM – 7:00 PM</span></div>
+      <div><b>Sunday</b><span>Call to book a slot</span></div>
+    </div>
+    <div class="cta">
+      <a class="btn btn-pri" href="tel:9431370327">Call 94313 70327</a>
+      <a class="btn btn-sec" href="https://www.google.com/maps/search/?api=1&query=Neal+Driving+School+Rahar+Gora+Dhaiya+Dhanbad" target="_blank" rel="noreferrer">Get directions</a>
+    </div>
+  </div>
+  <div class="gcard js rv">
+    <h3>Prefer WhatsApp?</h3>
+    <p class="hint">Chat with us directly — we reply fast.</p>
+    <div class="cta" style="margin-top:0"><a class="btn btn-pri" href="https://wa.me/919431370327?text=Hello%2C%20I%20want%20to%20know%20about%20car%20driving%20classes." target="_blank" rel="noreferrer" style="width:100%">Chat on WhatsApp</a></div>
+    <p class="hint" style="margin:22px 0 0">Or request a callback using the form at the top of this page.</p>
+  </div>
+</div></section>
+</main>
+
+<footer><div class="wrap">
+  <p><b>Neal Driving School</b>, Rahar Gora, Dhaiya, near Prabhatam Mall, Dhanbad 826004</p>
+  <p>Need a car for a trip? Neal Motors offers self-drive and with-driver rentals. Call <a href="tel:6299916160">62999 16160</a>.</p>
+</div></footer>
+<div class="sticky"><a href="tel:9431370327">Call now</a><a href="https://wa.me/919431370327" target="_blank" rel="noreferrer">WhatsApp</a></div>
+
+<script>
+document.documentElement.classList.add('js');
+/* Spotlight cards follow cursor */
+document.querySelectorAll('.spot').forEach(function(c){
+  c.addEventListener('pointermove',function(e){
+    var r=c.getBoundingClientRect();
+    c.style.setProperty('--mx',((e.clientX-r.left)/r.width*100)+'%');
+    c.style.setProperty('--my',((e.clientY-r.top)/r.height*100)+'%');
+  });
+});
+/* Scroll reveal */
+var io=('IntersectionObserver' in window)?new IntersectionObserver(function(a){a.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.08}):null;
+document.querySelectorAll('.rv').forEach(function(n){io?io.observe(n):n.classList.add('in')});
+/* CountUp */
+document.querySelectorAll('.count').forEach(function(el){
+  var to=+el.dataset.to,t0=null;
+  function step(t){if(!t0)t0=t;var p=Math.min((t-t0)/1200,1);el.textContent=Math.round(to*(1-Math.pow(1-p,3)));if(p<1)requestAnimationFrame(step)}
+  requestAnimationFrame(step);
+});
+/* Form -> WhatsApp */
+document.getElementById('f').addEventListener('submit',function(e){
+  e.preventDefault();var d=new FormData(this);
+  var t='Hello, I am '+d.get('name')+' ('+d.get('phone')+'). I want the '+d.get('plan')+' plan, '+d.get('car')+' car.';
+  window.open('https://wa.me/919431370327?text='+encodeURIComponent(t),'_blank');
+});
+</script>
+</body>
+</html>

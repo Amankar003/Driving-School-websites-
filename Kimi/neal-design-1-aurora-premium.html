@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Neal Driving School | Learn Safe, Drive Smart</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#060a13; --bg2:#0a1120; --panel:rgba(255,255,255,.035);
+  --line:rgba(255,255,255,.09); --txt:#eef2fa; --mut:#93a1bd;
+  --gold:#e9b95c; --gold2:#f5d48a; --navy:#12244a;
+  --font-d:'Sora',sans-serif; --font-b:'Inter',sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:90px}
+body{background:var(--bg);color:var(--txt);font:400 17px/1.7 var(--font-b);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+ul{list-style:none}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:4px}
+.wrap{width:min(1160px,100% - 40px);margin-inline:auto}
+
+/* ---------- Aurora background ---------- */
+.aurora{position:fixed;inset:0;z-index:-2;overflow:hidden;background:radial-gradient(1200px 600px at 70% -10%,#101c3a 0%,transparent 60%),var(--bg)}
+.aurora i{position:absolute;border-radius:50%;filter:blur(90px);opacity:.5;mix-blend-mode:screen;animation:drift 22s ease-in-out infinite alternate}
+.aurora .a1{width:640px;height:640px;left:-160px;top:-180px;background:radial-gradient(circle,#1d3a7a,transparent 70%)}
+.aurora .a2{width:560px;height:560px;right:-140px;top:6%;background:radial-gradient(circle,#5a4110,transparent 70%);animation-delay:-7s}
+.aurora .a3{width:520px;height:520px;left:32%;top:52%;background:radial-gradient(circle,#123a6b,transparent 70%);animation-delay:-14s}
+@keyframes drift{to{transform:translate(70px,50px) scale(1.12)}}
+.noise{position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.05;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)' opacity='.6'/%3E%3C/svg%3E")}
+
+/* ---------- Nav ---------- */
+header{position:sticky;top:0;z-index:50;background:rgba(6,10,19,.72);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.bar{display:flex;align-items:center;justify-content:space-between;min-height:72px;gap:16px}
+.logo{display:flex;align-items:center;gap:11px}
+.logo .mk{width:40px;height:40px;border-radius:10px;background:linear-gradient(135deg,var(--gold),#c98f2c);color:#131007;display:grid;place-items:center;font:800 19px var(--font-d)}
+.logo b{font:700 19px var(--font-d);letter-spacing:.02em}
+.logo small{display:block;font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--mut)}
+nav{display:none;gap:34px}
+nav a{font:500 14.5px var(--font-b);color:var(--mut);letter-spacing:.02em;transition:color .2s}
+nav a:hover{color:var(--txt)}
+
+/* ---------- Buttons ---------- */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:52px;padding:0 30px;border-radius:12px;font:600 15.5px var(--font-b);cursor:pointer;transition:transform .2s,box-shadow .2s,background .2s}
+.btn:hover{transform:translateY(-2px)}
+.btn-solid{background:linear-gradient(135deg,var(--gold),#d19c35);color:#161006;box-shadow:0 10px 30px -10px rgba(233,185,92,.5)}
+.btn-ghost{background:rgba(255,255,255,.04);border:1px solid var(--line);color:var(--txt)}
+.btn-ghost:hover{background:rgba(255,255,255,.08)}
+.btn-sm{min-height:42px;padding:0 20px;font-size:14.5px}
+/* StarBorder (ReactBits style) */
+.star-border{position:relative;display:inline-flex;overflow:hidden;border-radius:12px;padding:1.5px}
+.star-border .inner{position:relative;z-index:1;display:inline-flex;align-items:center;justify-content:center;gap:8px;width:100%;min-height:52px;padding:0 30px;border-radius:11px;background:#0b1322;font:600 15.5px var(--font-b);color:var(--gold2)}
+.star-border::before{content:"";position:absolute;width:300%;height:50%;top:50%;left:50%;transform-origin:0 0;animation:spinStar 4s linear infinite;background:conic-gradient(from 0deg,transparent 0 300deg,var(--gold) 360deg)}
+@keyframes spinStar{to{transform:rotate(360deg)}}
+
+/* ---------- Hero ---------- */
+.hero{padding:96px 0 80px}
+.hero-g{display:grid;gap:48px;align-items:center}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;border:1px solid var(--line);background:rgba(255,255,255,.04);border-radius:999px;padding:7px 18px;font:500 13px var(--font-b);color:var(--mut);letter-spacing:.04em}
+.eyebrow .dot{width:7px;height:7px;border-radius:50%;background:var(--gold);box-shadow:0 0 12px var(--gold)}
+h1{margin-top:26px;font:800 clamp(3rem,10vw,5.6rem)/1.06 var(--font-d);letter-spacing:-.03em}
+.grad{background:linear-gradient(100deg,#fff 20%,var(--gold2) 55%,var(--gold) 80%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero .sub{margin-top:18px;font:500 clamp(1.2rem,3.4vw,1.55rem) var(--font-d);color:#c7d2e8}
+.hero p.lede{margin-top:16px;max-width:33em;color:var(--mut)}
+.cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:34px}
+.stats{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:18px;overflow:hidden;margin-top:54px}
+.stats li{background:rgba(10,17,32,.75);backdrop-filter:blur(8px);padding:24px 22px}
+.stats b{display:block;font:800 clamp(1.9rem,6vw,2.6rem)/1.1 var(--font-d);color:var(--gold2)}
+.stats span{font-size:13.5px;color:var(--mut);letter-spacing:.02em}
+
+/* ---------- Hero card ---------- */
+.hcard{position:relative;border:1px solid var(--line);border-radius:24px;background:linear-gradient(160deg,rgba(255,255,255,.06),rgba(255,255,255,.02));backdrop-filter:blur(14px);padding:34px 30px;box-shadow:0 50px 90px -40px rgba(0,0,0,.8)}
+.hcard .tag{position:absolute;top:-13px;left:26px;background:linear-gradient(135deg,var(--gold),#c98f2c);color:#161006;font:700 12px var(--font-b);letter-spacing:.12em;text-transform:uppercase;padding:5px 16px;border-radius:999px}
+.hcard h3{font:700 1.35rem var(--font-d)}
+.hcard .hint{color:var(--mut);font-size:14.5px;margin:4px 0 20px}
+.form{display:grid;gap:14px}
+.form label{display:grid;gap:7px;font:600 13.5px var(--font-b);color:#c7d2e8;letter-spacing:.02em}
+.form input,.form select{min-height:50px;padding:0 16px;border:1px solid var(--line);border-radius:11px;background:rgba(255,255,255,.05);color:var(--txt);font:500 15.5px var(--font-b);transition:border-color .2s,background .2s}
+.form input::placeholder{color:#5d6b88}
+.form input:focus,.form select:focus{outline:none;border-color:var(--gold);background:rgba(233,185,92,.06)}
+.form select option{background:#0b1322;color:#eef2fa}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+
+/* ---------- Sections ---------- */
+section{padding:96px 0}
+.kicker{display:inline-flex;align-items:center;gap:12px;font:600 12.5px var(--font-b);letter-spacing:.26em;text-transform:uppercase;color:var(--gold)}
+.kicker::before{content:'';width:34px;height:1px;background:var(--gold)}
+h2{margin-top:14px;font:800 clamp(2rem,6vw,3.1rem)/1.1 var(--font-d);letter-spacing:-.025em}
+.lead{margin-top:14px;max-width:36em;color:var(--mut)}
+
+/* Spotlight cards */
+.spot{position:relative;overflow:hidden;background:var(--panel);border:1px solid var(--line);border-radius:18px;transition:border-color .3s}
+.spot::before{content:'';position:absolute;inset:0;background:radial-gradient(420px circle at var(--mx,50%) var(--my,50%),rgba(233,185,92,.12),transparent 45%);opacity:0;transition:opacity .35s;pointer-events:none}
+.spot:hover::before{opacity:1}
+.spot:hover{border-color:rgba(233,185,92,.35)}
+
+.skills{margin-top:52px;display:grid;gap:16px}
+.skill{padding:28px 26px}
+.skill .n{font:700 13px var(--font-b);color:var(--gold);letter-spacing:.1em}
+.skill h3{margin-top:12px;font:600 1.25rem var(--font-d)}
+.skill p{margin-top:8px;color:var(--mut);font-size:15.5px}
+.who{margin-top:44px;display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.who b{font:600 14px var(--font-b);color:var(--mut);letter-spacing:.04em;margin-right:6px}
+.who span{border:1px solid var(--line);background:rgba(255,255,255,.04);border-radius:999px;padding:9px 22px;font:500 14.5px var(--font-b);color:#dbe3f2;transition:border-color .25s,background .25s}
+.who span:hover{border-color:rgba(233,185,92,.5);background:rgba(233,185,92,.07)}
+
+/* Pricing */
+.plans{margin-top:56px;display:grid;gap:22px;align-items:stretch}
+.plan{padding:34px 30px;display:flex;flex-direction:column}
+.plan .d{font:600 13px var(--font-b);letter-spacing:.18em;text-transform:uppercase;color:var(--mut)}
+.plan .price{margin-top:14px;font:800 clamp(2.9rem,9vw,3.6rem)/1 var(--font-d);letter-spacing:-.03em}
+.plan .price small{font:500 1rem var(--font-b);color:var(--mut);letter-spacing:0}
+.plan .km{margin-top:8px;color:var(--mut);font-size:14.5px}
+.plan ul{margin:26px 0 30px;padding-top:24px;border-top:1px solid var(--line);display:grid;gap:12px;flex:1}
+.plan li{position:relative;padding-left:28px;font-size:15.5px;color:#c7d2e8}
+.plan li::before{content:'';position:absolute;left:2px;top:.42em;width:13px;height:7px;border-left:2px solid var(--gold);border-bottom:2px solid var(--gold);transform:rotate(-45deg)}
+.plan.hot{background:linear-gradient(165deg,rgba(233,185,92,.14),rgba(233,185,92,.04));border-color:rgba(233,185,92,.45)}
+.plan.hot .price{color:var(--gold2)}
+.plan .flag{position:absolute;top:-13px;left:28px;background:linear-gradient(135deg,var(--gold),#c98f2c);color:#161006;font:700 11.5px var(--font-b);letter-spacing:.14em;text-transform:uppercase;padding:5px 15px;border-radius:999px}
+.fine{margin-top:22px;font-size:13.5px;color:#5d6b88}
+
+/* Reviews */
+.quotes{margin-top:52px;display:grid;gap:18px}
+.q{padding:30px 28px}
+.q .st{color:var(--gold);letter-spacing:4px;font-size:1.05rem}
+.q p{margin-top:14px;color:#c7d2e8;font-size:16px}
+.q b{display:block;margin-top:18px;font:600 14.5px var(--font-b);color:var(--txt)}
+
+/* Contact */
+.contact{background:linear-gradient(180deg,transparent,rgba(18,36,74,.35))}
+.cg{display:grid;gap:44px}
+address{font-style:normal;margin-top:24px;color:#c7d2e8;line-height:1.9}
+.cg .form{background:rgba(255,255,255,.03)}
+
+footer{border-top:1px solid var(--line);padding:36px 0 110px;font-size:14.5px;color:#5d6b88}
+footer .wrap{display:grid;gap:8px}
+footer a{color:var(--gold);font-weight:600}
+footer b{color:var(--txt)}
+.sticky{position:fixed;left:12px;right:12px;bottom:12px;z-index:60;display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.sticky a{text-align:center;padding:14px;border-radius:12px;font:700 14.5px var(--font-b);background:linear-gradient(135deg,var(--gold),#d19c35);color:#161006;box-shadow:0 14px 30px -10px rgba(0,0,0,.7)}
+.sticky a:last-child{background:rgba(11,19,34,.95);color:var(--gold2);border:1px solid rgba(233,185,92,.4)}
+
+/* Scroll reveal */
+.js .rv{opacity:0;transform:translateY(36px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1)}
+.js .rv.in{opacity:1;transform:none}
+
+@media(min-width:900px){
+  nav{display:flex}
+  .hero-g{grid-template-columns:1.15fr .85fr;gap:70px}
+  .stats{grid-template-columns:repeat(4,1fr)}
+  .skills{grid-template-columns:repeat(3,1fr)}
+  .plans{grid-template-columns:repeat(3,1fr)}
+  .plan.hot{transform:translateY(-14px)}
+  .quotes{grid-template-columns:repeat(3,1fr)}
+  .cg{grid-template-columns:1fr 1fr;gap:80px;align-items:start}
+  .sticky{display:none}
+  footer{padding-bottom:40px}
+}
+@media(prefers-reduced-motion:reduce){
+  .aurora i,.star-border::before{animation:none}
+  .js .rv{opacity:1;transform:none;transition:none}
+}
+</style>
+</head>
+<body>
+<div class="aurora" aria-hidden="true"><i class="a1"></i><i class="a2"></i><i class="a3"></i></div>
+<div class="noise" aria-hidden="true"></div>
+
+<header><div class="wrap bar">
+  <a class="logo" href="#top"><span class="mk">N</span><span><b>Neal</b><small>Driving School</small></span></a>
+  <nav><a href="#learn">Training</a><a href="#pricing">Pricing</a><a href="#reviews">Reviews</a><a href="#contact">Contact</a></nav>
+  <a class="btn btn-solid btn-sm" href="tel:9431370327">Call 94313 70327</a>
+</div></header>
+
+<main id="top">
+<section class="hero"><div class="wrap hero-g">
+  <div>
+    <span class="eyebrow"><span class="dot"></span>Rahar Gora, Dhaiya, Dhanbad</span>
+    <h1>Learn to drive.<br><span class="grad">Drive for life.</span></h1>
+    <p class="sub">कार चलाना सीखें — आराम से, बिना डर के।</p>
+    <p class="lede">Patient instructors, real road practice, manual and automatic cars. Neal Driving School turns first-time learners into confident, safe drivers.</p>
+    <div class="cta">
+      <a class="btn btn-solid" href="tel:9431370327">Call 94313 70327</a>
+      <a class="btn btn-ghost" href="https://wa.me/919431370327?text=Hello%2C%20I%20want%20to%20know%20about%20car%20driving%20classes." target="_blank" rel="noreferrer">WhatsApp us</a>
+    </div>
+    <div class="stats">
+      <li><b><span class="count" data-to="10">0</span> km</b><span>practice every day</span></li>
+      <li><b><span class="count" data-to="30">0</span> days</b><span>complete program</span></li>
+      <li><b>M + A</b><span>manual and automatic</span></li>
+      <li><b>100%</b><span>road-based training</span></li>
+    </div>
+  </div>
+  <div class="hcard rv">
+    <span class="tag">Most chosen plan</span>
+    <h3>Book a free callback</h3>
+    <p class="hint">Share your details. We call you back the same day.</p>
+    <form class="form" id="f">
+      <label>Your name<input name="name" required minlength="2" placeholder="e.g. Rahul Kumar"></label>
+      <label>Mobile number<input name="phone" type="tel" inputmode="numeric" required pattern="[6-9][0-9]{9}" placeholder="10-digit mobile" title="10-digit mobile number"></label>
+      <div class="two">
+        <label>Plan<select name="plan"><option>10 days</option><option selected>15 days</option><option>30 days</option><option>Not sure yet</option></select></label>
+        <label>Car type<select name="car"><option>Manual</option><option>Automatic</option><option>Both</option></select></label>
+      </div>
+      <button class="star-border" type="submit"><span class="inner">Request a call back</span></button>
+    </form>
+  </div>
+</div></section>
+
+<section id="learn"><div class="wrap rv">
+  <span class="kicker">Training</span>
+  <h2>Everything you need to drive with confidence</h2>
+  <p class="lead">Every lesson is on real roads with an instructor beside you, so what you learn works long after the test.</p>
+  <div class="skills">
+    <div class="spot skill"><span class="n">01</span><h3>Four-wheeler training</h3><p>From the first time you sit behind the wheel to full road readiness.</p></div>
+    <div class="spot skill"><span class="n">02</span><h3>Manual and automatic</h3><p>Learn on the gearbox you actually plan to drive.</p></div>
+    <div class="spot skill"><span class="n">03</span><h3>City and highway driving</h3><p>Busy junctions, open highways — real conditions, real confidence.</p></div>
+    <div class="spot skill"><span class="n">04</span><h3>Parking and reverse</h3><p>Tight spots and tricky turns, practised until they feel easy.</p></div>
+    <div class="spot skill"><span class="n">05</span><h3>Traffic rules and road safety</h3><p>Everything you need for the test — and for every day after it.</p></div>
+    <div class="spot skill"><span class="n">06</span><h3>Passing guarantee</h3><p>We stand behind our training. Call us to know how it works.</p></div>
+  </div>
+  <div class="who"><b>SPECIAL TRAINING FOR</b><span>Ladies</span><span>First-time learners</span><span>Nervous drivers</span><span>Working professionals</span></div>
+</div></section>
+
+<section id="pricing"><div class="wrap rv">
+  <span class="kicker">Pricing</span>
+  <h2>Simple plans, clear prices</h2>
+  <p class="lead">Every plan includes a daily 10 km session with an instructor. Choose manual or automatic when you book.</p>
+  <div class="plans">
+    <article class="spot plan"><p class="d">Starter</p><p class="price">₹3,200<small> / 10 days</small></p><p class="km">10 km every day</p>
+      <ul><li>Manual or automatic car</li><li>Traffic rules basics</li><li>Daily instructor session</li></ul>
+      <a class="btn btn-ghost" href="#contact" style="width:100%">Book this plan</a></article>
+    <article class="spot plan hot"><span class="flag">Most chosen</span><p class="d">Standard</p><p class="price">₹4,500<small> / 15 days</small></p><p class="km">10 km every day</p>
+      <ul><li>Manual or automatic car</li><li>City driving, parking and reverse</li><li>Traffic rules and road safety</li></ul>
+      <a class="btn btn-solid" href="#contact" style="width:100%">Book this plan</a></article>
+    <article class="spot plan"><p class="d">Complete</p><p class="price">₹8,000<small> / 30 days</small></p><p class="km">10 km every day</p>
+      <ul><li>Everything in the 15-day plan</li><li>City and highway driving</li><li>Extra practice before your test</li></ul>
+      <a class="btn btn-ghost" href="#contact" style="width:100%">Book this plan</a></article>
+  </div>
+  <p class="fine">Prices shown are indicative. Please confirm the current fee when you call.</p>
+</div></section>
+
+<section id="reviews"><div class="wrap rv">
+  <span class="kicker">Reviews</span>
+  <h2>What learners say on Google</h2>
+  <div class="quotes">
+    <figure class="spot q"><div class="st">★★★★★</div><p>Placeholder: replace with a real Google review from a Neal Driving School student.</p><b>Google reviewer</b></figure>
+    <figure class="spot q"><div class="st">★★★★★</div><p>Placeholder: replace with a real Google review, ideally from a first-time learner.</p><b>Google reviewer</b></figure>
+    <figure class="spot q"><div class="st">★★★★★</div><p>Placeholder: replace with a real Google review, ideally from a lady learner.</p><b>Google reviewer</b></figure>
+  </div>
+  <p style="margin-top:36px"><a class="btn btn-ghost" href="https://share.google/chuuq7Lb9e3djTQq4" target="_blank" rel="noreferrer">Read all reviews on Google</a></p>
+</div></section>
+
+<section class="contact" id="contact"><div class="wrap cg">
+  <div class="rv">
+    <span class="kicker">Contact</span>
+    <h2>Start your lessons this week</h2>
+    <p class="lead">Call us, WhatsApp us, or drop by. We will help you pick the right plan.</p>
+    <address>Rahar Gora, Dhaiya, near Prabhatam Mall<br>Dhanbad, Jharkhand 826004</address>
+    <div class="cta">
+      <a class="btn btn-solid" href="tel:9431370327">Call 94313 70327</a>
+      <a class="btn btn-ghost" href="https://www.google.com/maps/search/?api=1&query=Neal+Driving+School+Rahar+Gora+Dhaiya+Dhanbad" target="_blank" rel="noreferrer">Get directions</a>
+    </div>
+  </div>
+  <div class="hcard rv">
+    <h3>Prefer a callback?</h3>
+    <p class="hint">Fill the form in the hero, or reach us on WhatsApp directly.</p>
+    <div class="cta"><a class="btn btn-ghost" href="https://wa.me/919431370327?text=Hello%2C%20I%20want%20to%20know%20about%20car%20driving%20classes." target="_blank" rel="noreferrer">Chat on WhatsApp</a></div>
+  </div>
+</div></section>
+</main>
+
+<footer><div class="wrap">
+  <p><b>Neal Driving School</b>, Rahar Gora, Dhaiya, near Prabhatam Mall, Dhanbad 826004</p>
+  <p>Need a car for a trip? Neal Motors offers self-drive and with-driver rentals. Call <a href="tel:6299916160">62999 16160</a>.</p>
+</div></footer>
+<div class="sticky"><a href="tel:9431370327">Call now</a><a href="https://wa.me/919431370327" target="_blank" rel="noreferrer">WhatsApp</a></div>
+
+<script>
+document.documentElement.classList.add('js');
+/* Spotlight cards follow cursor */
+document.querySelectorAll('.spot').forEach(function(c){
+  c.addEventListener('pointermove',function(e){
+    var r=c.getBoundingClientRect();
+    c.style.setProperty('--mx',((e.clientX-r.left)/r.width*100)+'%');
+    c.style.setProperty('--my',((e.clientY-r.top)/r.height*100)+'%');
+  });
+});
+/* Scroll reveal */
+var io=('IntersectionObserver' in window)?new IntersectionObserver(function(a){a.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.1}):null;
+document.querySelectorAll('.rv').forEach(function(n){io?io.observe(n):n.classList.add('in')});
+/* CountUp */
+document.querySelectorAll('.count').forEach(function(el){
+  var to=+el.dataset.to;var t0=null;
+  function step(t){if(!t0)t0=t;var p=Math.min((t-t0)/1200,1);el.textContent=Math.round(to*(1-Math.pow(1-p,3)));if(p<1)requestAnimationFrame(step)}
+  requestAnimationFrame(step);
+});
+/* Form -> WhatsApp */
+document.getElementById('f').addEventListener('submit',function(e){
+  e.preventDefault();var d=new FormData(this);
+  var t='Hello, I am '+d.get('name')+' ('+d.get('phone')+'). I want the '+d.get('plan')+' plan, '+d.get('car')+' car.';
+  window.open('https://wa.me/919431370327?text='+encodeURIComponent(t),'_blank');
+});
+</script>
+</body>
+</html>
